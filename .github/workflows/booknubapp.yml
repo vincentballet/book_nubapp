@@ -1,10 +1,10 @@
 name: Book Fitogram
 on: 
   schedule:
-    - cron: "16 19 * * *"
+    - cron: "20 00 * * *"
   push:
     branches:    
-    - workflow-sandbox
+    - workflow
 
 jobs:
   Fitogram-Self-Book:
@@ -19,5 +19,5 @@ jobs:
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
       - name: Run the script
         run: |
-          python run.py --email ${{ secrets.VINCENT_USERNAME }} --password ${{ secrets.VINCENT_PASSWORD }} --customer_id ${{ secrets.VINCENT_CUSTOMER_ID }}
+          python run.py --email ${{ secrets.VINCENT_USERNAME }} --password ${{ secrets.VINCENT_PASSWORD }} --id_app ${{ secrets.ID_APP }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
