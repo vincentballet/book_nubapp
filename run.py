@@ -152,6 +152,8 @@ def main(account, password, id_app):
 
         slots = [s for s in slots if '07:00:00' in s['start']]
 
+        print(json.dumps(slots, indent=4, sort_keys=True))
+
         assert len(slots) == 1
         slot = slots[0]
 
