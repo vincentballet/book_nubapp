@@ -149,11 +149,8 @@ def main(account, password, id_app):
 
         slots = get_slots(session, search_start.timestamp(),search_end.timestamp(), datetime.datetime.now().timestamp())
         slots = json.loads(slots.content)
-        print(json.dumps(slots, indent=4, sort_keys=True))
 
         slots = [s for s in slots if '07:00:00' in s['start']]
-
-        print(json.dumps(slots, indent=4, sort_keys=True))
 
         assert len(slots) == 1
         slot = slots[0]
