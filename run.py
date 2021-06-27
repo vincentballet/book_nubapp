@@ -138,7 +138,7 @@ def main(account, password, id_app):
 
     # Build slots
     d = datetime.date.today()
-    start_h, start_min, end_h, end_min = 7, 0, 9, 0 
+    start_h, start_min, end_h, end_min = 6, 0, 10, 0 
 
     calendar = {}
     days = [('monday', 0), ('wednesday', 2), ('friday', 4)]
