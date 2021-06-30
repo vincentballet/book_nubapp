@@ -150,7 +150,10 @@ def main(account, password, id_app):
         slots = get_slots(session, search_start.timestamp(),search_end.timestamp(), datetime.datetime.now().timestamp())
         slots = json.loads(slots.content)
 
-        slots = [s for s in slots if '07:00:00' in s['start']]
+        if t[0] in ['monday', 'friday']:
+            slots = [s for s in slots if '07:15:00' in s['start']]
+        else : 
+            slots = [s for s in slots if '07:00:00' in s['start']]
 
         assert len(slots) == 1
         slot = slots[0]
