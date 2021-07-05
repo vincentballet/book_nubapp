@@ -2,6 +2,8 @@ name: Book Nubapp
 on: 
   schedule:
     - cron: "00 18 * * *"
+    - cron: "55 17 * * *"
+    - cron: "50 17 * * *"
   push:
     branches:    
     - workflow
@@ -20,5 +22,4 @@ jobs:
       - name: Run the script
         run: |
           python run.py --account ${{ secrets.VINCENT_USERNAME }} --password ${{ secrets.VINCENT_PASSWORD }} --id_app ${{ secrets.ID_APP }}
-          python run.py --account ${{ secrets.JAN_USERNAME }} --password ${{ secrets.JAN_PASSWORD }} --id_app ${{ secrets.ID_APP }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
