@@ -138,7 +138,7 @@ def main(account, password, id_app):
 
     # Build slots
     d = datetime.date.today()
-    start_h, start_min, end_h, end_min = 6, 0, 10, 0 
+    start_h, start_min, end_h, end_min = 11, 0, 14, 0 
 
     calendar = {}
     days = [('monday', 0), ('wednesday', 2), ('friday', 4)]
@@ -150,10 +150,8 @@ def main(account, password, id_app):
         slots = get_slots(session, search_start.timestamp(),search_end.timestamp(), datetime.datetime.now().timestamp())
         slots = json.loads(slots.content)
 
-        if t[0] in ['monday', 'friday']:
-            slots = [s for s in slots if '07:15:00' in s['start']]
-        else : 
-            slots = [s for s in slots if '07:00:00' in s['start']]
+
+        slots = [s for s in slots if '12:15:00' in s['start']]
 
         assert len(slots) == 1
         slot = slots[0]
