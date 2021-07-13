@@ -1,4 +1,4 @@
-name: Book Nubapp
+name: BookNubapp
 on: 
   schedule:
     - cron: "00 18 * * *"
