@@ -133,8 +133,8 @@ def main(account, password, id_app):
 
     ## Wait until 8pm
     d = datetime.datetime.today()
-    d_wait = datetime.datetime(d.year, d.month, d.day, 11, 48)
-    assert((d_wait - d).total_seconds() < 120)
+    d_wait = datetime.datetime(d.year, d.month, d.day, 11, 51)
+    assert((d_wait - d).total_seconds() < 300)
     pause.until(d_wait)
 
     session = requests.Session()
