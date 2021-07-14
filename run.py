@@ -133,7 +133,7 @@ def main(account, password, id_app):
 
     ## Wait until 8pm
     d = datetime.datetime.today()
-    d_wait = datetime.datetime(d.year, d.month, d.day, 11, 52)
+    d_wait = datetime.datetime(d.year, d.month, d.day, 9, 54)
     print(d)
     print(d_wait)
     assert((d_wait - d).total_seconds() < 3000)
