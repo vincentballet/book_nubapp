@@ -3,6 +3,7 @@ import time
 import optparse
 import datetime
 import json
+import pause
 
 # ID_APPLICATION = 81560887
 
@@ -130,6 +131,12 @@ def main(account, password, id_app):
     print("=" * 100)
     print(f"[{account}] Running script on {str(datetime.datetime.now())}")
 
+    ## Wait until 8pm
+    d = datetime.datetime.today()
+    d_wait = datetime.datetime(d.year, d.month, d.day, 11, 48)
+    assert((d_wait - d).total_seconds() < 120)
+    pause.until(d_wait)
+
     session = requests.Session()
     
     ## Login
@@ -137,7 +144,6 @@ def main(account, password, id_app):
     res_login = login(session, account, password)
 
     # Build slots
-    d = datetime.date.today()
     start_h, start_min, end_h, end_min = 11, 0, 14, 0 
 
     calendar = {}
@@ -178,4 +184,5 @@ if __name__ == "__main__":
     parser.add_option('-i', '--id_app', action="store", dest="id_app")
    
     options, _ = parser.parse_args()
+    
     main(options.account, options.password, options.id_app)
