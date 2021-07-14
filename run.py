@@ -131,12 +131,11 @@ def main(account, password, id_app):
     print("=" * 100)
     print(f"[{account}] Running script on {str(datetime.datetime.now())}")
 
-    ## Wait until 8pm
+    ## Wait until 8:00:01pm
     d = datetime.datetime.today()
-    d_wait = datetime.datetime(d.year, d.month, d.day, 9, 54)
-    print(d)
-    print(d_wait)
-    assert((d_wait - d).total_seconds() < 3000)
+    d_wait = datetime.datetime(d.year, d.month, d.day, 18, 0, 1)
+    print(d, d_wait)
+    assert((d_wait - d).total_seconds() < 120)
     pause.until(d_wait)
 
     session = requests.Session()
