@@ -1,9 +1,5 @@
 name: BookNubapp
 on: 
-  schedule:
-    - cron: "00 18 * * *"
-    - cron: "55 17 * * *"
-    - cron: "50 17 * * *"
   workflow_dispatch:
     inputs:
       name:
