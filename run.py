@@ -148,7 +148,7 @@ def main(account, password, id_app):
     start_h, start_min, end_h, end_min = 11, 0, 14, 0 
 
     calendar = {}
-    days = [('monday', 0), ('wednesday', 2), ('friday', 4)]
+    days = [('monday', 0), ('tuesday', 1), ('wednesday', 2), ('thursday', 3), ('friday', 4)]
     for t in days:
         weekday = next_weekday(d, t[1])
         search_start = datetime.datetime(weekday.year, weekday.month, weekday.day, start_h, start_min)
